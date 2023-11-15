@@ -1,0 +1,9 @@
+{
+    "scraper_options":{
+            "mode": "album",
+            "default_download_location": "C:/Users/",
+            "folder_naming": "{album_title}",
+            "file_naming": null
+            }
+
+}
