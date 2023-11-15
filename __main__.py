@@ -22,7 +22,8 @@ parser.add_argument("-t","--title",help="Title: artist and album/track name")
 
 args = parser.parse_args()
 #print(f"{args.mode} {args.path}")
-chrome_options = uWebDriver.ChromeOptions()
+chrome_options = webdriver.ChromeOptions()
+#chrome_options.add_argument("--headless=new")
 prefs = {"profile.default_content_settings.popups": 0,
              "download.default_directory": args.path,#IMPORTANT - ENDING SLASH V IMPORTANT
              "directory_upgrade": True}
@@ -50,3 +51,5 @@ if __name__=="__main__":
         
         driver.switch_to.window(driver.window_handles[0])
         scraper.run(driver,options["scraper_options"],title)
+        driver.quit()
+        exit()
