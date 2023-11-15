@@ -3,7 +3,8 @@
             "mode": "album",
             "default_download_location": "C:/Users/",
             "folder_naming": "{album_title}",
-            "file_naming": null
+            "file_naming": null,
+            "quality": "mp3(320)"
             }
 
 }
