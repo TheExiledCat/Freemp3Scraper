@@ -8,7 +8,7 @@ import argparse
 import os
 import chromedriver_autoinstaller_fix
 import undetected_chromedriver as uWebDriver
-
+import random
 chromedriver_autoinstaller_fix.install()  
 parser = argparse.ArgumentParser()
 
@@ -29,7 +29,8 @@ prefs = {"profile.default_content_settings.popups": 0,
 chrome_options.add_experimental_option('prefs',prefs)
 adblocker_path = "adblocker"
 chrome_options.add_argument('load-extension=' + adblocker_path)
-
+with open("agents.txt") as file:
+    chrome_options.add_argument("user-agent="+random.choice(file.readlines()))
 driver  = webdriver.Chrome(options=chrome_options)
 title = args.title
 with open("config.json") as file:
@@ -45,5 +46,7 @@ if __name__=="__main__":
         for i in range(2):
             driver.switch_to.window(driver.window_handles[1])
             driver.close()
+            pass
+        
         driver.switch_to.window(driver.window_handles[0])
         scraper.run(driver,options["scraper_options"],title)
