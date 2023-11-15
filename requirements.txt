@@ -8,4 +8,4 @@ numpy==1.26.2
 ordereddict==1.1
 selenium==4.15.2
 typing_extensions==3.7.4.3
-wincertstore==0.2.1
+
